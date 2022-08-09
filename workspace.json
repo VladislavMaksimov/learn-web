@@ -1,7 +1,8 @@
 {
   "version": 2,
   "projects": {
-    "odyssey-client": "apps/odyssey/client"
+    "odyssey-client": "apps/odyssey/client",
+    "odyssey-server": "apps/odyssey/server"
   },
   "$schema": "./node_modules/nx/schemas/workspace-schema.json"
 }

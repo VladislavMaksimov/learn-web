@@ -1,0 +1,11 @@
+{
+  "name": "odyssey-server",
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "author": "Vladislav Maksimov",
+  "license": "MIT",
+  "devDependencies": {
+    "dotenv": "^16.0.1",
+    "nodemon": "^2.0.19"
+  }
+}

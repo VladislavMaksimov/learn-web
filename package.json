@@ -7,7 +7,9 @@
     "build": "nx build",
     "test": "nx test",
     "odyssey-client:start": "nx serve odyssey-client",
-    "odyssey-client:build": "nx build odyssey-client"
+    "odyssey-client:build": "nx build odyssey-client",
+    "odyssey-server:start": "nx serve odyssey-server",
+    "odyssey-server:build": "nx build odyssey-server"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +27,7 @@
     "@nrwl/eslint-plugin-nx": "14.5.4",
     "@nrwl/jest": "14.5.4",
     "@nrwl/linter": "14.5.4",
+    "@nrwl/node": "^14.5.4",
     "@nrwl/react": "14.5.4",
     "@nrwl/web": "14.5.4",
     "@nrwl/workspace": "14.5.4",
