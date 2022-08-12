@@ -9,7 +9,8 @@
     "odyssey-client:start": "nx serve odyssey-client",
     "odyssey-client:build": "nx build odyssey-client",
     "odyssey-server:start": "nx serve odyssey-server",
-    "odyssey-server:build": "nx build odyssey-server"
+    "odyssey-server:build": "nx build odyssey-server",
+    "preinstall": "npx only-allow yarn"
   },
   "private": true,
   "dependencies": {
