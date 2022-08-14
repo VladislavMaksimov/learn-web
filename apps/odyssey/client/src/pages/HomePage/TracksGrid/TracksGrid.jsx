@@ -1,10 +1,10 @@
 import { useQuery } from "@apollo/client"
 import Grid from '@mui/material/Grid';
 import { TrackCard } from "../../../components/TrackCard/TrackCard";
-import { TRACKS } from "./tracks"
+import { GET_TRACKS } from "./tracks"
 
 export const TracksGrid = () => {
-    const { loading, error, data } = useQuery(TRACKS);
+    const { loading, error, data } = useQuery(GET_TRACKS);
 
     if (loading) return <>Loading...</>;
 

@@ -1,6 +1,7 @@
-import './App.css';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
-import { HomePage } from './pages/HomePage/HomePage';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { AppRoutes } from './routes/AppRoutes';
+import './App.css';
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_SERVER,
@@ -9,7 +10,9 @@ const client = new ApolloClient({
 
 function App() {
   return (<ApolloProvider client={client}>
-    <HomePage />
+    <Router>
+      <AppRoutes />
+    </Router>
   </ApolloProvider>);
 }
 

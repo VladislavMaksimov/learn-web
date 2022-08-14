@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
-export const TRACKS = gql`
-  query ExampleQuery {
+export const GET_TRACKS = gql`
+  query GetTracks {
     tracksForHome {
       id
       title
