@@ -1,6 +1,8 @@
 {
   "version": 2,
   "projects": {
+    "odyssey-airlock-client": "apps/odyssey/airlock-client",
+    "odyssey-airlock-server": "apps/odyssey/airlock-server",
     "odyssey-client": "apps/odyssey/client",
     "odyssey-server": "apps/odyssey/server"
   },
