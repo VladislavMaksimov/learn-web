@@ -13,7 +13,9 @@
     "odyssey-server:build": "nx build odyssey-server",
 
     "airlock-client:start": "nx serve odyssey-airlock-client",
-    "airlock-client:build": "nx build odyssey-airlock-client"
+    "airlock-client:build": "nx build odyssey-airlock-client",
+    "airlock-server:start": "nx serve odyssey-airlock-server",
+    "airlock-server:launch": "nx launch odyssey-airlock-server"
   },
   "private": true,
   "dependencies": {

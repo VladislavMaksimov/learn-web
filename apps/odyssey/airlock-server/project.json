@@ -2,56 +2,5 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/odyssey/airlock-server/src",
   "projectType": "application",
-  "targets": {
-    "build": {
-      "executor": "@nrwl/node:webpack",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/apps/odyssey/airlock-server",
-        "main": "apps/odyssey/airlock-server/src/main.ts",
-        "tsConfig": "apps/odyssey/airlock-server/tsconfig.app.json",
-        "assets": ["apps/odyssey/airlock-server/src/assets"]
-      },
-      "configurations": {
-        "production": {
-          "optimization": true,
-          "extractLicenses": true,
-          "inspect": false,
-          "fileReplacements": [
-            {
-              "replace": "apps/odyssey/airlock-server/src/environments/environment.ts",
-              "with": "apps/odyssey/airlock-server/src/environments/environment.prod.ts"
-            }
-          ]
-        }
-      }
-    },
-    "serve": {
-      "executor": "@nrwl/node:node",
-      "options": {
-        "buildTarget": "odyssey-airlock-server:build"
-      },
-      "configurations": {
-        "production": {
-          "buildTarget": "odyssey-airlock-server:build:production"
-        }
-      }
-    },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["apps/odyssey/airlock-server/**/*.ts"]
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/odyssey/airlock-server"],
-      "options": {
-        "jestConfig": "apps/odyssey/airlock-server/jest.config.ts",
-        "passWithNoTests": true
-      }
-    }
-  },
   "tags": []
 }
