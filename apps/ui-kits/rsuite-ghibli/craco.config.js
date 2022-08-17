@@ -5,7 +5,7 @@ module.exports = {
       // Remove guard against importing modules outside of \`src\`.
       // Needed for workspace projects.
       config.resolve.plugins = config.resolve.plugins.filter(
-        (plugin) => !(plugin instanceof ModuleScopePlugin)
+        (plugin) => !(plugin instanceof ModuleScopePlugin),
       );
 
       // Replace include option for babel loader with exclude
