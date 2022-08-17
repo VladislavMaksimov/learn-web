@@ -15,7 +15,10 @@
     "airlock-client:start": "nx serve odyssey-airlock-client",
     "airlock-client:build": "nx build odyssey-airlock-client",
     "airlock-server:start": "nx serve odyssey-airlock-server",
-    "airlock-server:launch": "nx launch odyssey-airlock-server"
+    "airlock-server:launch": "nx launch odyssey-airlock-server",
+
+    "rsuite-ghibli:start": "nx serve ui-kits-rsuite-ghibli",
+    "rsuite-ghibli:build": "nx build ui-kits-rsuite-ghibli"
   },
   "private": true,
   "dependencies": {

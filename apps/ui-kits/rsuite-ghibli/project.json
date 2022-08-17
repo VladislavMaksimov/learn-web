@@ -1,0 +1,6 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ui-kits/rsuite-ghibli/src",
+  "projectType": "application",
+  "tags": []
+}
