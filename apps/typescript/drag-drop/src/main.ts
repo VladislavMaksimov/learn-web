@@ -1,1 +1,1 @@
-console.log('Hello World!');
+import './app/app.element.ts';

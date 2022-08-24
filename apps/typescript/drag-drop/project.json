@@ -1,37 +1,51 @@
 {
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/typescript/drag-drop/src",
   "projectType": "application",
+  "sourceRoot": "apps/typescript/drag-drop/src",
+  "tags": [],
   "targets": {
     "build": {
-      "executor": "@nrwl/node:webpack",
+      "executor": "@nrwl/web:webpack",
       "outputs": [
         "{options.outputPath}"
       ],
+      "defaultConfiguration": "production",
       "options": {
         "outputPath": "dist/apps/typescript/drag-drop",
+        "compiler": "babel",
+        "index": "apps/typescript/drag-drop/src/index.html",
+        "baseHref": "/",
         "main": "apps/typescript/drag-drop/src/main.ts",
+        "polyfills": "apps/typescript/drag-drop/src/polyfills.ts",
         "tsConfig": "apps/typescript/drag-drop/tsconfig.app.json",
         "assets": [
+          "apps/typescript/drag-drop/src/favicon.ico",
           "apps/typescript/drag-drop/src/assets"
-        ]
+        ],
+        "styles": [
+          "apps/typescript/drag-drop/src/styles.scss"
+        ],
+        "scripts": []
       },
       "configurations": {
         "production": {
-          "optimization": true,
-          "extractLicenses": true,
-          "inspect": false,
           "fileReplacements": [
             {
               "replace": "apps/typescript/drag-drop/src/environments/environment.ts",
               "with": "apps/typescript/drag-drop/src/environments/environment.prod.ts"
             }
-          ]
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
         }
       }
     },
     "serve": {
-      "executor": "@nrwl/node:node",
+      "executor": "@nrwl/web:dev-server",
       "options": {
         "buildTarget": "typescript-drag-drop:build"
       },
@@ -62,6 +76,5 @@
         "passWithNoTests": true
       }
     }
-  },
-  "tags": []
+  }
 }
