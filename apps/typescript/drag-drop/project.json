@@ -1,0 +1,67 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/typescript/drag-drop/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/apps/typescript/drag-drop",
+        "main": "apps/typescript/drag-drop/src/main.ts",
+        "tsConfig": "apps/typescript/drag-drop/tsconfig.app.json",
+        "assets": [
+          "apps/typescript/drag-drop/src/assets"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/typescript/drag-drop/src/environments/environment.ts",
+              "with": "apps/typescript/drag-drop/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "typescript-drag-drop:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "typescript-drag-drop:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/typescript/drag-drop/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/apps/typescript/drag-drop"
+      ],
+      "options": {
+        "jestConfig": "apps/typescript/drag-drop/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
