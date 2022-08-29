@@ -20,7 +20,10 @@
         "*.ts",
         "*.tsx"
       ],
-      "rules": {}
+      "rules": {
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "no-debugger": "warn"
+      }
     },
     {
       "files": [

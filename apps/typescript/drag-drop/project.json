@@ -17,7 +17,7 @@
         "baseHref": "/",
         "main": "apps/typescript/drag-drop/src/main.ts",
         "polyfills": "apps/typescript/drag-drop/src/polyfills.ts",
-        "tsConfig": "apps/typescript/drag-drop/tsconfig.app.json",
+        "tsConfig": "apps/typescript/drag-drop/tsconfig.json",
         "assets": [
           "apps/typescript/drag-drop/src/favicon.ico",
           "apps/typescript/drag-drop/src/assets"
