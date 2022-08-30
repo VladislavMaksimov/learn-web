@@ -1,11 +1,13 @@
-/* eslint-disable @typescript-eslint/ban-types */
-class ProjectState {
-    private static instance: ProjectState;
-    private projects: any[] = [];
-    private listeners: Function[] = [];
+import { Project, ProjectWorkingState } from "../_models/projects";
+import State from "./State";
 
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    private constructor(){};
+class ProjectState extends State<Project> {
+    private static instance: ProjectState;
+    private projects: Project[] = [];
+
+    private constructor() {
+        super();
+    };
 
     static getInstance() {
         if (!this.instance) {
@@ -14,18 +16,27 @@ class ProjectState {
         return this.instance;
     }
 
-    addListener(listenerCb: Function) {
-        this.listeners.push(listenerCb);
+    addProject(title: string, description: string, peopleCount: number) {
+        const newProject = new Project(
+            Math.random().toString(),
+            title,
+            description,
+            peopleCount,
+            ProjectWorkingState.ACTIVE
+        );
+        this.projects.push(newProject);
+        this.updateListeners();
     }
 
-    addProject(title: string, description: string, peopleCount: number) {
-        const newProject = {
-            id: Math.random().toString(),
-            title: title,
-            description: description,
-            people: peopleCount
-        };
-        this.projects.push(newProject);
+    moveProject(projectId: string, newState: ProjectWorkingState) {
+        const neededProject = this.projects.find(project => project.id === projectId);
+        if (neededProject && neededProject.state !== newState) {
+            neededProject.state = newState;
+            this.updateListeners();
+        }
+    }
+
+    private updateListeners() {
         for (const listener of this.listeners) {
             listener(this.projects.slice());
         }

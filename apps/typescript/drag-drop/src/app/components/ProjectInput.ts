@@ -1,29 +1,27 @@
 import Autobind from "../decorators/Autobind";
 import projectState from "../state/ProjectState";
 import { Validatable, validate } from "../utils/validator";
+import Component from "./Component";
 
-class ProjectInput {
-    templateElement: HTMLTemplateElement;
-    hostElement: HTMLDivElement;
-    element: HTMLFormElement;
+class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
     titleInputElement: HTMLInputElement;
     descriptionInputElement: HTMLInputElement;
     peopleInputElement: HTMLInputElement;
 
     constructor() {
-        this.templateElement = document.getElementById("project-input")! as HTMLTemplateElement;
-        this.hostElement = document.getElementById("root")! as HTMLDivElement;
+        super("project-input", "root", true, "user-input");
+        this.configure();
+    }
 
-        const importedNode = document.importNode(this.templateElement.content, true);
-        this.element = importedNode.firstElementChild as HTMLFormElement;
-        this.element.id = 'user-input';
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    renderContent() {}
 
+    configure() {
         this.titleInputElement = this.element.querySelector('#title') as HTMLInputElement;
         this.descriptionInputElement = this.element.querySelector('#description') as HTMLInputElement;
         this.peopleInputElement = this.element.querySelector('#people') as HTMLInputElement;
 
-        this.configure();
-        this.attach();
+        this.element.addEventListener('submit', this.submitHandler);
     }
     
     private getUserInput(): [string, string, number] {
@@ -81,14 +79,6 @@ class ProjectInput {
         this.titleInputElement.value = '';
         this.descriptionInputElement.value = '';
         this.peopleInputElement.value = ''; 
-    }
-
-    private configure() {
-        this.element.addEventListener('submit', this.submitHandler);
-    }
-
-    private attach() {
-        this.hostElement.insertAdjacentElement('afterbegin', this.element);
     }
 }
 
