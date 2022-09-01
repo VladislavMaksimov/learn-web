@@ -5,6 +5,7 @@
     "odyssey-airlock-server": "apps/odyssey/airlock-server",
     "odyssey-client": "apps/odyssey/client",
     "odyssey-server": "apps/odyssey/server",
+    "react-components-design": "apps/react/components-design",
     "typescript-drag-drop": "apps/typescript/drag-drop",
     "ui-kits-rsuite-ghibli": "apps/ui-kits/rsuite-ghibli"
   },
